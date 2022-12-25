@@ -1,4 +1,4 @@
-import { Button, TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
+import { Button, TextField, FormGroup, FormControlLabel, Checkbox, FormControl, InputLabel, Select, MenuItem, Radio, RadioGroup } from '@mui/material'
 import React, {useState} from 'react'
 
 const RegisterForm = () => {
@@ -6,7 +6,9 @@ const RegisterForm = () => {
     name: "",
     email: "",
     password: "",
-    subscribe: false
+    subscribe: false,
+    age: 0,
+    gender: ""
   });
 
   const handleChange = (e) => {
@@ -28,6 +30,19 @@ const RegisterForm = () => {
         <FormGroup>
             <FormControlLabel control={<Checkbox />} name="subscribe" label="Subscribe" onChange={()=>setFormInputs((prevValue)=>({...prevValue,subscribe: !formInputs.subscribe}))} />
         </FormGroup>
+        <FormControl>
+            <InputLabel>Age</InputLabel>
+            <Select name='age' label="Age" value={formInputs.age} onChange={handleChange}>
+                <MenuItem value={0}>0</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
+                <MenuItem value={20}>20</MenuItem>
+                <MenuItem value={30}>30</MenuItem>
+            </Select>
+        </FormControl>
+        <RadioGroup name='gender' onChange={handleChange} defaultValue="female">
+            <FormControlLabel value={"Female"} control={<Radio />} label="Female" />
+            <FormControlLabel value={"male"} control={<Radio />} label="Male" />
+        </RadioGroup>
         <Button size="medium" sx={{width:"10%"}} variant='outlined' type='submit'>Register</Button>
       </form>
     </div>
