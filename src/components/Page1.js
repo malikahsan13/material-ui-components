@@ -24,6 +24,9 @@ import {
   Collapse,
   ListItemIcon,
   ListItemText,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState } from "react";
@@ -135,6 +138,14 @@ function Page1() {
             ))}
           </List>
         </Collapse>
+        <Accordion>
+            <AccordionSummary expandIcon=">">
+                <Typography>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                Detail of Accorion 1
+            </AccordionDetails>
+        </Accordion>
       </Container>
     </div>
   );
