@@ -18,6 +18,12 @@ import {
   Modal,
   Box,
   Link,
+  List,
+  ListItem,
+  ListItemButton,
+  Collapse,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState } from "react";
@@ -26,6 +32,8 @@ function Page1() {
   const [val, setVal] = useState(0);
   const [openDialog, setOpenDialog] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const arr = ["First", "Second", "Third", "Fourth", "Fifth"];
+  const [openList, setOpenList] = useState(false)
   return (
     <div>
       <AppBar position="relative">
@@ -110,6 +118,23 @@ function Page1() {
         >
           Visit Google
         </Link>
+        <List>
+            <ListItem>
+                <ListItemButton onClick={()=>setOpenList(true)}>
+                    <ListItemIcon>{" > "}</ListItemIcon>
+                    <ListItemText primary="Expand List" />
+                </ListItemButton>
+            </ListItem>
+        </List>
+        <Collapse in={openList}>
+          <List sx={{ width:300, marginLeft:"30px" }}>
+            {arr.map((listItem)=>(
+                <ListItem key={listItem}>
+                    <ListItemButton onClick={()=>setOpenList(false)}>{listItem}</ListItemButton>
+                </ListItem>
+            ))}
+          </List>
+        </Collapse>
       </Container>
     </div>
   );
