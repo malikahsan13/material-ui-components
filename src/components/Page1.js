@@ -16,7 +16,8 @@ import {
   DialogContentText,
   DialogActions,
   Modal,
-  Box
+  Box,
+  Link
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -90,6 +91,7 @@ function Page1() {
             <Button variant="outlined">Cancel</Button>
         </Box>
       </Modal>
+      <Link color="green" variant="h4" underline="hover" href="https://www.google.com">Visit Google</Link>
     </div>
   );
 }
